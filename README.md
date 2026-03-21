@@ -4,8 +4,8 @@ A specialized Matlab tool developed during my Mathematics BSc, designed to conve
 
 ### 🧮 Mathematical Methodology
 The toolkit implements two fundamental numerical algorithms:
-1. **Euclidean Division (Successive Division):** Used for the integer component to determine coefficients $a_i$. [cite: 14]
-2. **Repeated Multiplication:** Used for the fractional component to isolate digits $b_i$ up to a user-defined precision (`ndigits`). [cite: 42, 53]
+1. **Euclidean Division (Successive Division):** Used for the integer component to determine coefficients $a_i$. 
+2. **Repeated Multiplication:** Used for the fractional component to isolate digits $b_i$ up to a user-defined precision (`ndigits`). 
 
 ### 🚀 Examples
 ```matlab
