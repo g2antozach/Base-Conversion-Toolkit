@@ -11,3 +11,11 @@ The toolkit implements two fundamental numerical algorithms:
 ```matlab
 % Example: 98.5 to base-9 (7 fractional digits)
 mydec2baseb(98.5, 9, 7) % Output: '118.4444444'
+```
+
+### 📄 Documentation
+[cite_start]For a detailed mathematical analysis and technical implementation details, please refer to the project report[cite: 151, 163]:
+* [cite_start][View Technical Report (PDF)](./documentation/Numerical%20Analysis%20-%20Lab%20Project%201.pdf) 
+* [LaTeX Source Code](./documentation/Numerical%20Analysis%20-%20Lab%20Project%201.tex)
+
+
