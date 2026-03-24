@@ -14,7 +14,7 @@ mydec2baseb(98.5, 9, 7) % Output: '118.4444444'
 ```
 
 ### 📄 Documentation
-For a detailed mathematical analysis and technical implementation details, please refer to the project report[cite: 151, 163]:
+For a detailed mathematical analysis and technical implementation details, please refer to the project report:
 * [View Technical Report (PDF)](./documentation/Numerical%20Analysis%20-%20Lab%20Project%201.pdf) 
 * [LaTeX Source Code](./documentation/Numerical%20Analysis%20-%20Lab%20Project%201.tex)
 
