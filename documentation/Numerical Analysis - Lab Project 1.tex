@@ -1,0 +1,122 @@
+\documentclass[12pt, a4paper]{article}
+
+% Γλώσσα και Κωδικοποίηση
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+\selectlanguage{greek}
+\usepackage{alphabeta}
+\usepackage{textgreek}  % Για ελληνικά γράμματα σε μαθηματική λειτουργία
+\newcommand{\lt}[1]{\textlatin{#1}}
+\usepackage{enumitem}
+
+% Μαθηματικά
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Μορφοποίηση Σελίδας και Διάστιχο
+\usepackage{geometry}
+\geometry{left=3cm, right=2cm, top=4cm, bottom=3cm}
+\usepackage{setspace}
+\setstretch{1.5}
+
+% Χρώματα και Ορισμοί
+\usepackage{xcolor}
+\definecolor{maroon}{HTML}{AF3235}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+% Πακέτο για monospace κώδικα
+\usepackage{verbatim}
+
+% Εικόνες
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+% Εντολή για άδεια σελίδα
+\usepackage{afterpage}
+\newcommand\blankpage{%
+	\null
+	\thispagestyle{empty}%
+	\addtocounter{page}{-1}%
+	\newpage}
+
+\begin{document}
+	
+\begin{titlepage}
+	\begin{center}
+		\HRule \\[0.6cm] 
+		{\huge \bfseries \strut Numerical Analysis - Lab Project 1} \\[0.4cm] 
+		\HRule \\[1.5cm]
+		{\large \textbf{Topic:}} \\
+		{\large Decimal to Base-b Positional System Conversion Utility} \\[2cm]
+		
+		\vfill 
+		\begin{doublespacing}
+			{\huge Antonios Zacharias\\}
+			{\large \textbf{BSc} in Mathematics, AUTh\\}
+			{\large \textbf{MSc} in Communication Networks \& System Security \\
+			Computer Science Department, AUTh}
+		\end{doublespacing}
+	
+		\vspace*{1cm} 
+		\end{center}
+\end{titlepage}	
+	
+\section*{1. Integer Part Conversion (intdec2baseb)}
+\textbf{Implementation Logic:} The function \texttt{intdec2baseb} converts the integer part of a decimal number to any target base $b \in [2, 9]$.
+
+\begin{itemize}[label=--]
+	\item \textbf{Algorithm:} It implements successive Euclidean divisions by the target base $b$.
+	\item \textbf{Mechanism:} A \texttt{while} loop runs as long as the quotient is greater than zero.
+	\item \textbf{Calculation:} The \texttt{mod(i, b)} function isolates the remainder, while \texttt{floor(i/b)} updates the integer for the next iteration.
+	\item \textbf{Output:} Each resulting digit is converted to a string and concatenated using \texttt{strcat}.
+\end{itemize}
+
+\textbf{Example (Base-5):}
+\begin{verbatim}
+	>> intdec2baseb(126, 5)
+	ans = '1001'
+\end{verbatim}
+
+\section*{2. Fractional Part Conversion (fractdec2baseb)}
+\textbf{Implementation Logic:} The function \texttt{fractdec2baseb} handles the conversion of decimal fractions ($< 1$) to the target base $b$.
+
+\begin{itemize}[label=--]
+	\item \textbf{Precision Control:} A counter and the input parameter \texttt{ndigits} ensure the algorithm terminates after a user-defined number of digits.
+	\item \textbf{Algorithm:} The decimal fraction is repeatedly multiplied by the target base $b$.
+	\item \textbf{Digit Isolation:} The \texttt{floor} function extracts the integer part of each product, which represents the next fractional digit.
+	\item \textbf{Formatting:} The resulting digits are joined into a string, prefixed with a decimal point.
+\end{itemize}
+
+\textbf{Example (Base-5):}
+\begin{verbatim}
+	>> fractdec2baseb(0.1234, 5, 10)
+	ans = '.0302030303'
+\end{verbatim}
+
+\section*{3. Unified Base Conversion (mydec2baseb)}
+\textbf{Implementation Logic:} The primary function \texttt{mydec2baseb} serves as a generalized wrapper for full decimal-to-base-$b$ conversion.
+
+\begin{itemize}[label=--]
+	\item \textbf{Integration:} It splits the input decimal number into its integer and fractional components using \texttt{floor}.
+	\item \textbf{Modular Execution:} It calls \texttt{intdec2baseb} for the integer part and \texttt{fractdec2baseb} for the fractional part.
+	\item \textbf{Final Assembly:} The two outputs are merged into a single string using \texttt{strcat}.
+\end{itemize}
+
+\textbf{Execution Examples:}
+\begin{verbatim}
+	>> mydec2baseb(98.5, 9, 7)
+	ans = '118.4444444'
+	
+	>> mydec2baseb(139.25, 4, 8)
+	ans = '2023.1'
+	
+	>> mydec2baseb(126.1234, 5, 10)
+	ans = '1001.0302030303'
+	
+	(Examples Verified via MATLAB Command Window)
+\end{verbatim}
+
+\end{document}
+
+
+
